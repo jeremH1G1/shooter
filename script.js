@@ -14,11 +14,30 @@ shooter.$targets = shooter.$container.querySelector('.targets')
  */
 shooter.addTarget = () =>
 {
+    // Create target
     const $target = document.createElement('div')
     $target.classList.add('target')
     $target.style.top = `${Math.random() * 100}%`
     $target.style.left = `${Math.random() * 100}%`
     shooter.$targets.appendChild($target)
+
+    // Listen to mouse enter
+    $target.addEventListener('mouseenter', () =>
+    {
+        shooter.shootTarget($target)
+    })
+}
+
+shooter.shootTarget = (_$target) =>
+{
+    // Delete target
+    _$target.remove()
+
+    // Add new target
+    shooter.addTarget()
+
+    // Increment score
+    // Play sound
 }
 
 shooter.addTarget()
