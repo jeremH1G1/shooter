@@ -8,6 +8,7 @@ shooter.$start = shooter.$container.querySelector('.start')
 shooter.$score = shooter.$container.querySelector('.score .value')
 shooter.$timer = shooter.$container.querySelector('.timer')
 shooter.$targets = shooter.$container.querySelector('.targets')
+shooter.score = 0
 
 /**
  * Methods
@@ -37,6 +38,9 @@ shooter.shootTarget = (_$target) =>
     shooter.addTarget()
 
     // Increment score
+    shooter.score++
+    shooter.$score.textContent = shooter.score
+
     // Play sound
 }
 
